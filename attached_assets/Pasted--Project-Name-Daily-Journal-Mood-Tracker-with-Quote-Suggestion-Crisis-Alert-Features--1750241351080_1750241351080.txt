@@ -1,0 +1,144 @@
+🔹 Project Name:
+👉 Daily Journal — Mood Tracker with Quote Suggestion + Crisis Alert
+
+🔹 Features:
+
+1️⃣ Signup Page
+
+Fields:
+
+Email (mandatory)
+
+Trusted person’s email (mandatory, for future crisis notifications)
+
+Password (create password field)
+
+2️⃣ Login Page
+
+Standard login with email + password
+
+3️⃣ Main App Layout (After Login)
+
+Left sidebar:
+
+Daily Journal logo at the top
+
+History list similar to ChatGPT style:
+
+Today
+
+Yesterday
+
+Previous Days
+
+Main canvas:
+
+Large text input box:
+Placeholder: “Write about your mood today…”
+
+Submit button: “Get Quote”
+
+4️⃣ Quote Suggestion Flow
+
+After submit:
+
+System analyses text mood sentiment (happy / sad / anxious / suicidal / etc)
+
+Suggests a matching motivational quote (fetched from DB of great quotes)
+
+Quote shown in a “gift box” style card:
+Button: “Open Box” or “Open Quote”
+
+When opened: user sees the quote and mood entry is marked as completed
+
+5️⃣ Mood Tracker Page
+
+Accessible via top navigation (or sidebar nav):
+
+Weekly mood chart (bar chart or emoji color-coded bar for each day)
+
+If mood marked as suicidal or crisis:
+
+Auto-send email to trusted person:
+“Hello, the mood journal detected that your member’s mood is in a critical state (e.g. suicidal thoughts). Please check in immediately.”
+
+6️⃣ User Profile (top-right icon)
+
+Show user’s email (cannot edit)
+
+Allow password change
+
+Allow changing trusted person’s email
+
+🔹 Database Design:
+
+Users table
+
+id
+
+email
+
+password_hash
+
+trusted_email
+
+JournalEntries table
+
+id
+
+user_id
+
+entry_text
+
+detected_mood (happy / sad / anxious / suicidal / neutral)
+
+quote_id (suggested quote)
+
+date_created
+
+Quotes table
+
+id
+
+quote_text
+
+mood_tag (happy / sad / anxious / general)
+
+🔹 Backend Logic:
+
+Node.js + Express (or your chosen backend)
+
+Routes for:
+
+signup
+
+login
+
+submit journal entry
+
+get quote suggestion
+
+fetch mood history
+
+update profile / trusted email
+
+send email (Nodemailer / EmailJS / Gmail API)
+
+🔹 Frontend:
+
+React (or your chosen frontend)
+
+Sidebar layout with logo + history
+
+Main canvas text input + quote display
+
+Chart for mood tracker
+
+Profile settings modal
+
+🔹 Special Notes:
+✅ Quote suggestions matched from DB based on mood tag
+✅ Trusted email auto-alert only on crisis moods
+✅ All quotes stored in DB
+✅ Mood history styled like chat app history
+
